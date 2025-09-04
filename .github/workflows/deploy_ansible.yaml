@@ -17,6 +17,18 @@ jobs:
       - name: 'Checkout repository'
         uses: actions/checkout@v4
 
+      - name: 'Deploying Script'
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.ELK1_IP }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: 22
+          timeout: 30s
+
+          script: |
+            ip addr
+
       # - name: 'Set up SSH'
       #   run: |
       #     echo "${{ secrets.SSH_PRIVATE_KEY }}" > private_key.pem
