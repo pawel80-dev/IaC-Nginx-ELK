@@ -22,19 +22,12 @@ jobs:
         run: |
           ip addr
 
-      # - name: 'Set up SSH'
-      #   run: |
-      #     echo "${{ secrets.SSH_PRIVATE_KEY }}" > private_key.pem
-      #     chmod 600 private_key.pem
-
       # To elevate privileges, use either: sudoers or sudo -S
       - name: 'Install Ansible'
         shell: bash
         run: |
-          who
-          echo "TEST"
-          sudo -S "${{ secrets.PASSWORD }}" apt update
-          sudo -S "${{ secrets.PASSWORD }}" apt install -y ansible
+          echo ${{ secrets.PASSWORD }} | sudo -S apt update
+          echo ${{ secrets.PASSWORD }} | sudo -S apt install -y ansible
 
       # - name: 'Run Ansible Playbook'
       #   env:
