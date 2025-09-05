@@ -29,6 +29,11 @@ jobs:
           echo ${{ secrets.PASSWORD }} | sudo -S apt update
           echo ${{ secrets.PASSWORD }} | sudo -S apt install -y ansible
 
+      - name: 'Ansible version'
+        shell: bash
+        run: |
+          ansible --version
+
       # - name: 'Run Ansible Playbook'
       #   env:
       #     ANSIBLE_USER: ${{ secrets.ANSIBLE_USER }}
