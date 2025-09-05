@@ -31,9 +31,8 @@ jobs:
       - name: 'Install Ansible'
         shell: bash
         run: |
-          pip install ansible
-          # sudo apt update
-          # sudo apt install -y ansible
+          sudo apt update
+          sudo apt install -y ansible
 
       # - name: 'Run Ansible Playbook'
       #   env:
