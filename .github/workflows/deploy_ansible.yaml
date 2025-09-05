@@ -31,8 +31,9 @@ jobs:
       - name: 'Install Ansible'
         shell: bash
         run: |
-          sudo -S ${{ secrets.PASSWORD }} apt update
-          sudo -S ${{ secrets.PASSWORD }} apt install -y ansible
+          echo ${{ secrets.PASSWORD }}
+          sudo -S "${{ secrets.PASSWORD }}" apt update
+          sudo -S "${{ secrets.PASSWORD }}" apt install -y ansible
 
       # - name: 'Run Ansible Playbook'
       #   env:
