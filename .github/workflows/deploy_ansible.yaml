@@ -15,20 +15,10 @@ jobs:
     # environment: development
     steps:
       - name: 'Checkout repository'
-        uses: actions/checkout@v4
-
-      # - name: 'Deploying Script'
-      #   uses: appleboy/ssh-action@v1
-      #   with:
-      #     host: ${{ secrets.ELK1_IP }}
-      #     username: ${{ secrets.USERNAME }}
-      #     password: ${{ secrets.PASSWORD }}
-      #     port: 22
-      #     # timeout: 30s
-      #     script: |
-      #       ip addr
+        uses: actions/checkout@v5
 
       - name: 'SSH test'
+        shell: bash
         run: |
           ip addr
 
@@ -37,11 +27,11 @@ jobs:
       #     echo "${{ secrets.SSH_PRIVATE_KEY }}" > private_key.pem
       #     chmod 600 private_key.pem
           
-      # - name: 'Install Ansible'
-      #   shell: bash
-      #   run: |
-      #     sudo apt update
-      #     sudo apt install -y ansible
+      - name: 'Install Ansible'
+        shell: bash
+        run: |
+          sudo apt update
+          sudo apt install -y ansible
 
       # - name: 'Run Ansible Playbook'
       #   env:
