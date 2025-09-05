@@ -27,7 +27,7 @@ jobs:
       #     echo "${{ secrets.SSH_PRIVATE_KEY }}" > private_key.pem
       #     chmod 600 private_key.pem
 
-      # sudoers
+      # sudoers?
       - name: 'Install Ansible'
         shell: bash
         run: |
