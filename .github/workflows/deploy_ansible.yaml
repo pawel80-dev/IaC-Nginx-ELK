@@ -27,12 +27,12 @@ jobs:
       #     echo "${{ secrets.SSH_PRIVATE_KEY }}" > private_key.pem
       #     chmod 600 private_key.pem
 
-      # sudoers?
+      # To elevate privileges, use either: sudoers or sudo -S
       - name: 'Install Ansible'
         shell: bash
         run: |
-          sudo apt update
-          sudo apt install -y ansible
+          sudo -S ${{ secrets.PASSWORD }} apt update
+          sudo -S ${{ secrets.PASSWORD }} apt install -y ansible
 
       # - name: 'Run Ansible Playbook'
       #   env:
