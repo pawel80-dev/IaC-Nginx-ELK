@@ -10,24 +10,41 @@
 #   ansible.builtin.apt:
 #     name: "nginx={{ nginx_version }}"
 #     state: present
- 
-- name: Copy the Nginx configuration file to the host
+
+#configure.yml
+---
+- name: Configure Nginx
   template:
-    src: templates/nginx.conf.j2
-    dest: /etc/nginx/sites-available/default
-- name: Create link to the new config to enable it
-  file:
-    dest: /etc/nginx/sites-enabled/default
-    src: /etc/nginx/sites-available/default
-    state: link
+    src: ../files/nginx.conf
+    dest: /etc/nginx/nginx.conf
+
+#nginx_status.yml
+---
+- name: Reload Nginx Service
+  service:
+    name: "{{ service }}"
+    state: reloaded
+    
+  notify:
+    - reload "{{ service }}"
  
-- name: Create Nginx directory
-  ansible.builtin.file:
-    path: "{{ nginx_custom_directory }}"
-    state: directory
+# - name: Copy the Nginx configuration file to the host
+#   template:
+#     src: templates/nginx.conf.j2
+#     dest: /etc/nginx/sites-available/default
+# - name: Create link to the new config to enable it
+#   file:
+#     dest: /etc/nginx/sites-enabled/default
+#     src: /etc/nginx/sites-available/default
+#     state: link
  
-- name: Copy index.html to the Nginx directory
-  copy:
-    src: files/index.html
-    dest: "{{ nginx_custom_directory }}/index.html"
-  notify: Restart the Nginx service
+# - name: Create Nginx directory
+#   ansible.builtin.file:
+#     path: "{{ nginx_custom_directory }}"
+#     state: directory
+ 
+# - name: Copy index.html to the Nginx directory
+#   copy:
+#     src: files/index.html
+#     dest: "{{ nginx_custom_directory }}/index.html"
+#   notify: Restart the Nginx service

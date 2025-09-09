@@ -37,4 +37,4 @@ jobs:
       #     ANSIBLE_USER: ${{ secrets.ANSIBLE_USER }}
       #     ANSIBLE_HOST_KEY_CHECKING: False
         run: |
-          ansible-playbook playbook_rev_nginx.yaml
+          ansible-playbook playbook_hello_world.yaml
