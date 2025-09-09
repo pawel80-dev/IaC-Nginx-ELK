@@ -1,0 +1,8 @@
+---
+- hosts: nginx
+  gather_facts: yes
+  connection: ssh
+  become: True              # privilege escalation parameter
+  become_user: pawel        # user with privilege escalation
+  roles:
+    - role: '/roles/nginx'
