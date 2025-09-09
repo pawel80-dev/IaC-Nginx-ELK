@@ -33,8 +33,7 @@ jobs:
           ansible --version
 
       - name: 'Run Ansible Playbook'
-        # env:
-        #    ANSIBLE_USER: ${{ secrets.ANSIBLE_USER }}
-      #     ANSIBLE_HOST_KEY_CHECKING: False
+      # Use sshpass for SSH connection
         run: |
+          # ansible-playbook playbook_hello_world.yaml --extra-vars "ansible_sudo_pass=${{ secrets.PASSWORD }} ansible_user=${{ secrets.USERNAME }} ansible_ssh_pass=${{ secrets.PASSWORD }}"
           ansible-playbook playbook_hello_world.yaml --extra-vars "ansible_sudo_pass=${{ secrets.PASSWORD }} ansible_user=${{ secrets.USERNAME }} ansible_ssh_pass=${{ secrets.PASSWORD }}"
