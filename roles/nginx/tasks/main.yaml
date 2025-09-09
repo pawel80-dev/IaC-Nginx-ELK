@@ -16,17 +16,18 @@
 - name: Configure Nginx
   template:
     src: ../files/nginx.conf
-    dest: /etc/nginx/nginx.conf
+    # dest: /etc/nginx/nginx.conf
+    dest: /tmp/nginx.conf
 
 #nginx_status.yml
----
-- name: Reload Nginx Service
-  service:
-    name: "{{ service }}"
-    state: reloaded
+# ---
+# - name: Reload Nginx Service
+#   service:
+#     name: "{{ service }}"
+#     state: reloaded
     
-  notify:
-    - reload "{{ service }}"
+#   notify:
+#     - reload "{{ service }}"
  
 # - name: Copy the Nginx configuration file to the host
 #   template:

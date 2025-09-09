@@ -33,7 +33,6 @@ jobs:
           ansible --version
 
       - name: 'Run Ansible Playbook'
-      # Use sshpass for SSH connection
+      # Install sshpass on runner for Ansible SSH connection
         run: |
-          # ansible-playbook playbook_hello_world.yaml --extra-vars "ansible_sudo_pass=${{ secrets.PASSWORD }} ansible_user=${{ secrets.USERNAME }} ansible_ssh_pass=${{ secrets.PASSWORD }}"
-          ansible-playbook playbook_hello_world.yaml --extra-vars "ansible_sudo_pass=${{ secrets.PASSWORD }} ansible_user=${{ secrets.USERNAME }} ansible_ssh_pass=${{ secrets.PASSWORD }}"
+          ansible-playbook playbook_rev_nginx.yaml --extra-vars "ansible_sudo_pass=${{ secrets.PASSWORD }} ansible_user=${{ secrets.USERNAME }} ansible_ssh_pass=${{ secrets.PASSWORD }}"
