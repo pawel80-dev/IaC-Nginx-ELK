@@ -33,8 +33,8 @@ jobs:
           ansible --version
 
       - name: 'Run Ansible Playbook'
-      #   env:
-      #     ANSIBLE_USER: ${{ secrets.ANSIBLE_USER }}
+        # env:
+        #    ANSIBLE_USER: ${{ secrets.ANSIBLE_USER }}
       #     ANSIBLE_HOST_KEY_CHECKING: False
         run: |
-          ansible-playbook playbook_hello_world.yaml
+          ansible-playbook playbook_hello_world.yaml --extra-vars "ansible_sudo_pass=${{ secrets.PASSWORD }} ansible_user=${{ secrets.USERNAME }} ansible_ssh_pass=${{ secrets.PASSWORD }}"
