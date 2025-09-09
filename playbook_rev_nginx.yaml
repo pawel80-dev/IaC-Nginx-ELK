@@ -5,4 +5,4 @@
   # become: True              # privilege escalation parameter
   # become_user: pawel        # user with privilege escalation
   roles:
-    - role: '/roles/nginx/'
+    - role: '/nginx/'
