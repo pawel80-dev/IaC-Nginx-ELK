@@ -1,4 +1,4 @@
-name: Deploy with Ansible
+name: Deploy with Ansible dev
 
 on:
   push:
@@ -15,10 +15,10 @@ jobs:
       - name: 'Checkout repository'
         uses: actions/checkout@v5
 
-      - name: 'SSH test'
-        shell: bash
-        run: |
-          ip addr
+      # - name: 'SSH test'
+      #   shell: bash
+      #   run: |
+      #     ip addr
 
       # To elevate privileges, use either: sudoers or sudo -S
       - name: 'Install Ansible'
