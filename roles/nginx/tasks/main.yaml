@@ -5,29 +5,12 @@
     src: ../files/nginx.conf
     dest: /etc/nginx/nginx.conf
 
-#nginx_status.yml
-# ---
-# - name: Reload Nginx Service
-#   service:
-#     name: "{{ service }}"
-#     state: reloaded
-    
-#   notify:
-#     - reload "{{ service }}"
-
-- name: Reload nginx
-  ansible.builtin.service:
-    name: "nginx.service"
-    state: reloaded
-  # service:
-  #   name: nginx
-  #   state: reloaded
-
-# - name: Restart nginx
+# - name: Reload nginx
 #   ansible.builtin.service:
 #     name: "nginx.service"
-#     state: restarted
+#     state: reloaded
 
-# - name: Reload systemd
-#   ansible.builtin.systemd:
-#     daemon_reload: true
+- name: Restart nginx
+  ansible.builtin.service:
+    name: "nginx.service"
+    state: restarted
