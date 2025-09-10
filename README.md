@@ -8,5 +8,5 @@ Purpose of this LAB is to demonstrate how to use Infrastructure as Code aproach 
 *Nginx, ELK stack: general design + IP address scheme*
 
 > [!NOTE]
-> To elevate privileges for Ansible instalation, I've used: sudo -S.
+> To elevate privileges for Ansible instalation, I've used: sudo -S.  
 > For passing sudo and user password to Nginx, I've used: sshpass. Installed on self-hosted runner.
