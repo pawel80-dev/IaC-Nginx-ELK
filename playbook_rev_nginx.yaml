@@ -2,7 +2,7 @@
 - hosts: nginx
   gather_facts: yes
   connection: ssh
-  become: True              # privilege escalation parameter
+  become: True                # privilege escalation parameter
   # become_user: xxxxx        # user with privilege escalation
   roles:
     - nginx
