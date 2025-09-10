@@ -15,4 +15,5 @@ jobs:
         uses: actions/checkout@v5
 
       - name: Main branch - Prod info
-        run: echo "Lack of resources to create NGINX PROD environment..."
+        run: |
+          echo 'Lack of resources to create NGINX PROD environment...'
