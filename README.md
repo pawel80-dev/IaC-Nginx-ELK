@@ -1,5 +1,5 @@
 # IaC-Nginx-ELK
-Infrastructure as Code: Nginx (reverse proxy), Elasticsearch, Logstash, Kibana
+Purpose of this LAB is to demonstrate how to use Infrastructure as Code aproach to configure: Nginx (reverse proxy), Elasticsearch, Logstash, Kibana, with the use of Ansible and Github workflows (pipelines).  
 
 ![alt text](drawings/elk_hld_v04.png)  
 *Syslog flow: high level design*
