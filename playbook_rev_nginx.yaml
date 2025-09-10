@@ -3,6 +3,6 @@
   gather_facts: yes
   connection: ssh
   # become: True              # privilege escalation parameter
-  # become_user: pawel        # user with privilege escalation
+  # become_user: xxxxx        # user with privilege escalation
   roles:
     - nginx
