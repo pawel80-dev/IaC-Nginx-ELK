@@ -1,9 +1,9 @@
 # Copy the config file
 ---
 - name: Configure Logstash
-  template:
-    src: ../files/*.conf
-    dest: /etc/logstash/conf.d/
+  ansible.builtin.template:
+    src: ../files/{{ item }}.conf
+    dest: /etc/logstash/conf.d/{{ item }}.conf
 
 # - name: copy input, output and filter files
 #   ansible.builtin.template:
@@ -19,6 +19,18 @@
 #     - filter
 #   notify: restart logstash
 #   tags: logstash
+
+# - name: copy multiple items
+#     copy: 
+#       src: "{{ item.src }}" 
+#       dest: "{{ item.dest }}"
+#     loop:
+#       - src: containerizers
+#         dest: /etc/mesos/containerizers
+#       - src: another_file
+#         dest: /etc/somewhere
+#       - src: dynamic
+#         dest: "{{ var_path }}"
 
 - name: Restart Logstash
   ansible.builtin.service:
