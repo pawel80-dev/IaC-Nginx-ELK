@@ -2,8 +2,8 @@
 ---
 - name: Configure Logstash
   ansible.builtin.template:
-    src: ../files/{{ item }}
-    dest: /etc/logstash/conf.d/{{ item }}
+    src: ../files/{{ item.name }}
+    dest: /etc/logstash/conf.d/{{ item.name }}
     loop: "{{ logstash_pipelines }}"
 
 # - name: copy input, output and filter files
