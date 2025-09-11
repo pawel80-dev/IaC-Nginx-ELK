@@ -1,0 +1,5 @@
+logstash_pipelines:
+  - syslog_v01.conf
+  - syslog_v02.conf
+  - test1.conf
+  - test2.conf
