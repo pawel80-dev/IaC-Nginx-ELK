@@ -8,7 +8,7 @@ on:
 
 jobs:
   deploy:
-    name: Deploy Ansible Playbook
+    name: Deploy Ansible Playbooks
     runs-on: self-hosted
     # environment: development
     steps:

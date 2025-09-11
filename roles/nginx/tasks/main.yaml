@@ -1,4 +1,4 @@
-# Copy the config file
+# Copy the config file, restart the service
 ---
 - name: Configure Nginx
   ansible.builtin.template:
