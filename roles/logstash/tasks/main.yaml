@@ -1,0 +1,26 @@
+# Copy the config file
+---
+- name: Configure Logstash
+  template:
+    src: ../files/*.conf
+    dest: /etc/logstash/conf.d/
+
+# - name: copy input, output and filter files
+#   ansible.builtin.template:
+#     src: '{{ item }}.conf.j2'
+#     dest: '/etc/logstash/conf.d/{{ item }}.conf'
+#     owner: root
+#     group: root
+#     mode: 0644
+#     validate: /usr/share/logstash/bin/logstash -t -f %s
+#   loop:
+#     - input
+#     - output
+#     - filter
+#   notify: restart logstash
+#   tags: logstash
+
+- name: Restart Logstash
+  ansible.builtin.service:
+    name: "logstash.service"
+    state: restarted

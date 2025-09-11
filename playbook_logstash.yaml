@@ -1,0 +1,7 @@
+---
+- hosts: logstash
+  gather_facts: yes
+  connection: ssh
+  become: True                # privilege escalation parameter
+  roles:
+    - logstash

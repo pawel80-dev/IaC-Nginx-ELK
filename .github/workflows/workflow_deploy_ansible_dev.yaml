@@ -32,7 +32,11 @@ jobs:
         run: |
           ansible --version
 
-      - name: 'Run Ansible Playbook'
+      - name: 'Run Nginx Ansible Playbook'
       # Install sshpass on runner for Ansible SSH connection
         run: |
           ansible-playbook playbook_rev_nginx.yaml --extra-vars "ansible_sudo_pass=${{ secrets.PASSWORD }} ansible_user=${{ secrets.USERNAME }} ansible_ssh_pass=${{ secrets.PASSWORD }}"
+
+      # - name: 'Run Logstash Ansible Playbook'
+      #   run: |
+      #     ansible-playbook playbook_logstash.yaml --extra-vars "ansible_sudo_pass=${{ secrets.PASSWORD }} ansible_user=${{ secrets.USERNAME }} ansible_ssh_pass=${{ secrets.PASSWORD }}"

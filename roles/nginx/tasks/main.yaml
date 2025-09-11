@@ -1,7 +1,8 @@
 # Copy the config file
 ---
 - name: Configure Nginx
-  template:
+  ansible.builtin.template:
+  # template:
     src: ../files/nginx.conf
     dest: /etc/nginx/nginx.conf
 
