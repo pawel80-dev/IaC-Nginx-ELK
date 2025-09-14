@@ -1,10 +1,10 @@
 # Copy the config file, restart the service
 ---
-# - name: Configure Logstash
-#   ansible.builtin.template:
-#     src: ../files/{{ item }}
-#     dest: /etc/logstash/conf.d/{{ item }}
-#     loop: "{{ logstash_pipelines }}"
+- name: Configure Logstash
+  ansible.builtin.template:
+    src: ../files/{{ item }}
+    dest: /etc/logstash/conf.d/{{ item }}
+  loop: "{{ logstash_pipelines }}"
 
 - name: Print some message
   ansible.builtin.debug:
@@ -14,21 +14,6 @@
   #   - first
   #   - second
   #   - third
-
-# - name: copy input, output and filter files
-#   ansible.builtin.template:
-#     src: '{{ item }}.conf.j2'
-#     dest: '/etc/logstash/conf.d/{{ item }}.conf'
-#     owner: root
-#     group: root
-#     mode: 0644
-#     validate: /usr/share/logstash/bin/logstash -t -f %s
-#   loop:
-#     - input
-#     - output
-#     - filter
-#   notify: restart logstash
-#   tags: logstash
 
 # - name: copy multiple items
 #     copy: 
