@@ -9,11 +9,11 @@
 - name: Print some message
   ansible.builtin.debug:
     msg: This is a {{ item }} message
-  loop:
-    - first
-    - second
-    - third
-    # msg: System {{ inventory_hostname }} has gateway {{ ansible_default_ipv4.gateway }}
+  loop : "{{ logstash_pipelines }}"
+  # loop:
+  #   - first
+  #   - second
+  #   - third
 
 # - name: copy input, output and filter files
 #   ansible.builtin.template:
