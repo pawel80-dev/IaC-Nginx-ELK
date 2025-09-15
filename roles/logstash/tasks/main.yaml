@@ -1,31 +1,18 @@
 # Copy the config file, restart the service
 ---
-- name: Configure Logstash
-  ansible.builtin.template:
-    src: ../files/{{ item }}
-    dest: /etc/logstash/conf.d/{{ item }}
-  loop: "{{ logstash_pipelines }}"
-
-- name: Print some message
-  ansible.builtin.debug:
-    msg: This is a {{ item }} message
-  loop : "{{ logstash_pipelines }}"
+# - name: Print some message (loop test)
+#   ansible.builtin.debug:
+#     msg: This is a {{ item }} message
   # loop:
   #   - first
   #   - second
   #   - third
 
-# - name: copy multiple items
-#     copy: 
-#       src: "{{ item.src }}" 
-#       dest: "{{ item.dest }}"
-#     loop:
-#       - src: containerizers
-#         dest: /etc/mesos/containerizers
-#       - src: another_file
-#         dest: /etc/somewhere
-#       - src: dynamic
-#         dest: "{{ var_path }}"
+- name: Configure Logstash
+  ansible.builtin.template:
+    src: ../files/{{ item }}
+    dest: /etc/logstash/conf.d/{{ item }}
+  loop: "{{ logstash_pipelines }}"
 
 - name: Restart Logstash
   ansible.builtin.service:
